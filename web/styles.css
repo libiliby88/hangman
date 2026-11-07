@@ -1,0 +1,210 @@
+:root {
+  --background: #2c3e50;
+  --canvas-background: #34495e;
+  --text: #ecf0f1;
+  --button: #3498db;
+  --button-active: #2980b9;
+  --correct: #27ae60;
+  --correct-active: #229954;
+  --wrong: #e74c3c;
+  --hint: #f39c12;
+  --hint-active: #e67e22;
+  --muted: #95a5a6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 280px;
+  min-height: 100%;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+button,
+dialog {
+  font: inherit;
+}
+
+button {
+  min-height: 42px;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+#app {
+  width: min(100%, 680px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 16px 12px 24px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 6vw, 2.3rem);
+}
+
+#hangman-canvas {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 12px;
+  background: var(--canvas-background);
+}
+
+.word {
+  min-height: 1.4em;
+  margin: 8px 0;
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: clamp(1.45rem, 6vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.status-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.95rem;
+}
+
+.wrong {
+  color: var(--wrong);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.clue {
+  min-height: 1.4em;
+  margin: 8px 0;
+  color: var(--hint);
+  font-weight: 700;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(2.4rem, 1fr));
+  gap: 6px;
+  width: 100%;
+  margin: 12px auto;
+}
+
+.letter-button {
+  border-radius: 4px;
+  background: var(--button);
+  min-width: 0;
+  padding: 4px 1px;
+  font-weight: 700;
+}
+
+.letter-button:active,
+.action:active {
+  transform: translateY(1px);
+}
+
+.letter-button.correct {
+  background: var(--correct);
+}
+
+.letter-button.wrong {
+  background: var(--wrong);
+}
+
+.actions,
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.action {
+  padding: 8px 20px;
+  border-radius: 4px;
+  background: var(--button);
+  font-weight: 700;
+}
+
+.action:active {
+  background: var(--button-active);
+}
+
+.action.hint {
+  background: var(--hint);
+}
+
+.action.hint:active {
+  background: var(--hint-active);
+}
+
+.action.new-game {
+  background: var(--correct);
+}
+
+.action.new-game:active {
+  background: var(--correct-active);
+}
+
+dialog {
+  width: min(90vw, 460px);
+  border: 0;
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--text);
+  text-align: center;
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 65%);
+}
+
+dialog h2 {
+  margin: 0 0 12px;
+}
+
+dialog p {
+  margin: 0 0 20px;
+}
+
+@media (max-width: 380px) {
+  #app {
+    padding-inline: 8px;
+  }
+
+  #hangman-canvas {
+    width: 180px;
+    height: 180px;
+  }
+
+  .keyboard {
+    gap: 4px;
+  }
+
+  .letter-button {
+    min-height: 38px;
+  }
+
+  .word {
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+}

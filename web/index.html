@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2c3e50">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/icon-180.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Hangman</title>
+</head>
+<body>
+  <main id="app">
+    <h1>HANGMAN</h1>
+    <canvas id="hangman-canvas" width="200" height="200" aria-label="Hangman drawing"></canvas>
+    <p id="word" class="word"></p>
+    <div class="status-row">
+      <span id="wrong-count" class="wrong">Wrong guesses: 0/6</span>
+      <span id="used-letters" class="muted">Used letters:</span>
+    </div>
+    <p id="clue" class="clue">Category: ???</p>
+    <section id="keyboard" class="keyboard" aria-label="Letter keyboard"></section>
+    <div class="actions">
+      <button id="clue-button" class="action hint" type="button">Show Clue</button>
+      <button id="new-game-button" class="action new-game" type="button">New Game</button>
+    </div>
+  </main>
+  <dialog id="result-dialog" aria-labelledby="result-title">
+    <h2 id="result-title"></h2>
+    <p id="result-message"></p>
+    <div class="dialog-actions">
+      <button id="result-again" class="action new-game" type="button">New Game</button>
+      <button id="result-close" class="action" type="button">Close</button>
+    </div>
+  </dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
